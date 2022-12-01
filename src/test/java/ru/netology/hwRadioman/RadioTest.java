@@ -17,7 +17,7 @@ class RadioTest {
             "10,0"
     })
     void shouldSetCurrentRadioStation(int newRadioStation, int expected) {
-        Radio rad = new Radio();
+        Radio rad = new Radio(10);
         rad.setCurrentRadioStation(newRadioStation);
 
         int actual = rad.getCurrentRadioStation();
@@ -30,7 +30,7 @@ class RadioTest {
             "5,6"
     })
     void shouldNextRadioStation(int newRadioStation, int expected) {
-        Radio rad = new Radio();
+        Radio rad = new Radio(10);
         rad.setCurrentRadioStation(newRadioStation);
 
         rad.nextRadioStation();
@@ -46,7 +46,7 @@ class RadioTest {
             "6,5"
     })
     void shouldPervRadioStation(int newRadioStation, int expected) {
-        Radio rad = new Radio();
+        Radio rad = new Radio(10);
         rad.setCurrentRadioStation(newRadioStation);
 
         rad.pervRadioStation();
@@ -61,8 +61,8 @@ class RadioTest {
             "-1,0",
             "0,0",
             "5,5",
-            "10,10",
-            "11,0"
+            "100,100",
+            "101,0"
     })
     void shouldSetVolume(int newVolume, int expected) {
         Radio rad = new Radio();
@@ -75,7 +75,7 @@ class RadioTest {
     @ParameterizedTest
     @CsvSource({
             "6,7",
-            "10,10"
+            "100,100"
     })
     void shouldVolumeUp(int newVolume, int expected) {
         Radio rad = new Radio();
