@@ -3,6 +3,17 @@ package ru.netology.hwRadioman;
 public class Radio {
     private int currentRadioStation;
     private int volume;
+    private int maxStation;
+
+    public Radio() {
+        maxStation = 9;
+
+    }
+
+    public Radio(int numberStation) {
+        maxStation = numberStation - 1;
+
+    }
 
     public int getCurrentRadioStation() {
 
@@ -10,7 +21,7 @@ public class Radio {
     }
 
     public void setCurrentRadioStation(int newRadioStation) {
-        if (newRadioStation > 9) {
+        if (newRadioStation > maxStation) {
             return;
         }
         if (newRadioStation < 0) {
@@ -20,27 +31,26 @@ public class Radio {
     }
 
     public void nextRadioStation() {
-        if (currentRadioStation < 9) {
+        if (currentRadioStation < maxStation) {
             currentRadioStation++;
-        } else {
+        } else
             currentRadioStation = 0;
-        }
     }
 
     public void pervRadioStation() {
         if (currentRadioStation > 0) {
             currentRadioStation--;
-        } else {
-            currentRadioStation = 9;
-        }
+        } else
+            currentRadioStation = maxStation;
     }
 
     public int getVolume() {
+
         return volume;
     }
 
     public void setVolume(int newVolume) {
-        if (newVolume > 10) {
+        if (newVolume > 100) {
             return;
         }
         if (newVolume < 0) {
@@ -51,15 +61,15 @@ public class Radio {
 
     public void volumeUp() {
 
-        if (volume < 10) {
-            volume = volume + 1;
+        if (volume < 100) {
+            volume++;
         }
     }
 
     public void volumeDown() {
         if (volume > 0) {
-            volume = volume - 1;
+            volume--;
         }
-    }
 
+    }
 }
